@@ -1,0 +1,10 @@
+Source : Grab3D (https://grab3d.com/)
+Licence : CC0 1.0 Universal (domaine public)
+
+Tous les fichiers GLB de ce dossier déclarent la licence CC0-1.0 et Grab3D
+comme source dans les métadonnées glTF intégrées à leurs nœuds. Les ressources
+et textures sont incorporées dans les fichiers GLB.
+
+Le fichier grab3d-cozy-character.glb du dossier D:\amelioration est identique
+au modèle déjà intégré sous public/models/characters/cozy-character.glb ; il
+n'est donc pas dupliqué ici.

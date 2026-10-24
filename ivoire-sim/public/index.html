@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ivoire Sim — Votre vie, notre Côte d'Ivoire</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- Écran 1 : connexion / inscription -->
+  <section id="screen-auth" class="screen">
+    <div class="hero">
+      <h1>IVOIRE <span>SIM</span></h1>
+      <p class="slogan">VOTRE VIE, NOTRE CÔTE D'IVOIRE</p>
+      <h2>Explorez. Travaillez.<br>Construisez votre histoire.</h2>
+      <p>Ivoire Sim est un jeu de simulation de vie en Côte d'Ivoire. Devenez qui vous voulez, vivez comme vous voulez !</p>
+      <div class="chips"><span>🚗 Véhicules</span><span>🏠 Maisons</span><span>💼 Emplois</span><span>📱 Téléphone</span><span>👥 Multijoueur</span></div>
+    </div>
+    <form id="auth-form" class="card auth">
+      <h3 id="auth-title">Connexion</h3>
+      <p class="muted">Reprenez votre aventure</p>
+      <input name="username" placeholder="Pseudo" autocomplete="username" hidden>
+      <input name="email" type="email" placeholder="Email" hidden>
+      <input name="login" placeholder="Pseudo ou Email" autocomplete="username" required>
+      <input name="password" type="password" placeholder="Mot de passe (8 car. min.)" autocomplete="current-password" required>
+      <button class="btn primary" type="submit" id="auth-submit">Se connecter</button>
+      <div class="or">OU</div>
+      <button class="btn ghost" type="button" id="auth-toggle">Créer un compte</button>
+      <p class="error" id="auth-error"></p>
+    </form>
+  </section>
+
+  <!-- Écran 2 : choix de la ville -->
+  <section id="screen-city" class="screen" hidden>
+    <header class="topbar"><h2>Choisissez votre ville</h2><button class="btn ghost small" data-logout>Déconnexion</button></header>
+    <section class="city-scene" aria-label="Aperçu 3D de la ville">
+      <canvas id="city-canvas" aria-label="Vue en trois dimensions de la ville sélectionnée"></canvas>
+      <div class="city-scene-caption">
+        <span class="city-scene-kicker">CÔTE D'IVOIRE · APERÇU 3D</span>
+        <h3 id="city-scene-name">Chargement des villes…</h3>
+        <p id="city-scene-tagline"></p>
+      </div>
+    </section>
+    <p id="city-scene-error" class="city-scene-error" role="status" hidden></p>
+    <div id="city-grid" class="grid city-grid"></div>
+    <button id="city-enter" class="btn primary city-enter" type="button" disabled>Choisir une ville</button>
+  </section>
+
+  <!-- Écran 3 : jeu -->
+  <section id="screen-game" class="screen" hidden>
+    <header class="topbar">
+      <div><strong id="hud-name"></strong> · Niv. <span id="hud-level"></span> · <span id="hud-city"></span></div>
+      <div class="money">💵 <span id="hud-cash"></span> · 🏦 <span id="hud-bank"></span></div>
+      <a class="btn primary small" href="city3d.html">🌆 Explorer en 3D</a>
+      <button class="btn ghost small" data-logout>Quitter</button>
+    </header>
+
+    <div class="stats">
+      <div>❤️ <i id="b-health"></i></div><div>🍗 <i id="b-hunger"></i></div>
+      <div>💧 <i id="b-thirst"></i></div><div>⚡ <i id="b-energy"></i></div>
+      <button class="btn small" data-act="eat">Manger (2 000)</button>
+      <button class="btn small" data-act="drink">Boire (500)</button>
+      <button class="btn small" data-act="sleep">Dormir</button>
+    </div>
+
+    <nav class="tabs">
+      <button data-tab="jobs" class="active">💼 Emplois</button>
+      <button data-tab="properties">🏠 Propriétés</button>
+      <button data-tab="furniture">🛋️ Meubles</button>
+      <button data-tab="vehicles">🚗 Véhicules</button>
+      <button data-tab="bank">🏦 Banque</button>
+      <button data-tab="players">👥 Joueurs</button>
+      <button data-tab="city">🗺️ Changer de ville</button>
+    </nav>
+    <main id="tab-content" class="card"></main>
+  </section>
+
+  <div id="toast"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

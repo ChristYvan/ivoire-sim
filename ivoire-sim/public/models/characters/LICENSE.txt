@@ -1,0 +1,5 @@
+Personnages : Grab3D Character Mixer (https://grab3d.com/tools/character-mixer/)
+Licence : CC0 1.0 Universal (domaine public)
+
+Les fichiers GLB de ce dossier incluent leur attribution et la licence CC0
+dans leurs métadonnées glTF.

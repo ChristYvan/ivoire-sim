@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ivoire Sim — Ville 3D</title>
+  <link rel="stylesheet" href="assets/city3d.css">
+  <script type="importmap">
+  {"imports":{
+    "three":"./vendor/three.module.js",
+    "three/addons/":"./vendor/addons/"
+  }}
+  </script>
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <div id="labels"></div>
+
+  <!-- Joueur -->
+  <div class="hud tl">
+    <button class="avatar" id="character-open" type="button" title="Personnaliser mon personnage">👤</button>
+    <div>
+      <strong id="p-name">Invité</strong>
+      <div class="sub">Niveau <span id="p-level">1</span></div>
+      <div class="sub">Ville : <span id="p-city">Abidjan</span></div>
+      <div class="bar"><i id="p-xp"></i></div>
+      <div class="money">💵 <span id="p-cash">0 FCFA</span></div>
+      <div class="money sm">🏦 <span id="p-bank">0 FCFA</span></div>
+    </div>
+  </div>
+
+  <!-- Météo / heure -->
+  <div class="hud tr">
+    <span>☀️ 32°C</span><span>🕒 <b id="clock">--:--</b></span><span id="date"></span>
+    <a href="index.html" title="Retour au jeu">⚙️</a>
+  </div>
+
+  <canvas id="mini" width="240" height="240"></canvas>
+  <div id="speedo" hidden><b id="kmh">0</b> km/h</div>
+  <div id="help">ZQSD / flèches : marcher · Maj : courir · E : entrer ou sortir d’une voiture · Glisser : regarder</div>
+
+  <aside class="phone">
+    <button data-app="Téléphone">📞<span>Téléphone</span></button>
+    <button data-app="Messages">💬<span>Messages</span></button>
+    <button data-app="YouTube">▶️<span>YouTube</span></button>
+    <button data-app="Instagram">📷<span>Instagram</span></button>
+    <button data-app="Maps">🗺️<span>Maps</span></button>
+    <button data-app="Personnage">🧍<span>Personnage</span></button>
+    <button data-app="Modèles 3D">🏗️<span>Modèles 3D</span></button>
+    <button data-app="Paramètres">⚙️<span>Paramètres</span></button>
+  </aside>
+
+  <nav class="bottom">
+    <button data-nav="inventory">🎒<span>Inventaire</span></button>
+    <button data-nav="map" class="active">🗺️<span>Carte</span></button>
+    <button data-nav="missions">📋<span>Missions</span></button>
+    <button data-nav="vehicles">🚗<span>Véhicules</span></button>
+    <button data-nav="home">🏠<span>Maison</span></button>
+    <button data-nav="money">🪙<span>Argent</span></button>
+  </nav>
+
+  <div id="dpad" hidden>
+    <button data-key="up">▲</button>
+    <div><button data-key="left">◀</button><button data-key="down">▼</button><button data-key="right">▶</button></div>
+    <button data-key="run">🏃 Courir</button>
+    <button id="vehicle-interact">🚘 Entrer (E)</button>
+  </div>
+
+  <div id="panel" hidden>
+    <div class="box"><button id="panel-close">✕</button><h3 id="panel-title"></h3><div id="panel-body"></div></div>
+  </div>
+  <div id="toast"></div>
+  <div id="loading">Chargement de la ville…</div>
+
+  <script type="module" src="assets/city3d.js"></script>
+</body>
+</html>

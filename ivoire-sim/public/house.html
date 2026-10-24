@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ivoire Sim — Ma maison</title>
+  <link rel="stylesheet" href="assets/house.css">
+  <script type="importmap">
+  {"imports":{
+    "three":"./vendor/three.module.js",
+    "three/addons/":"./vendor/addons/"
+  }}
+  </script>
+</head>
+<body>
+  <canvas id="c"></canvas>
+
+  <header class="top">
+    <a href="city3d.html" class="back">← Ville</a>
+    <select id="prop" aria-label="Choisir la maison"></select>
+    <span id="room-info"></span>
+  </header>
+
+  <div id="tools" hidden>
+    <strong id="sel-name"></strong>
+    <button id="btn-rot">↻ Tourner</button>
+    <button id="btn-del" class="danger">🗑️ Reprendre</button>
+    <button id="btn-done">✔ OK</button>
+  </div>
+
+  <div id="help">Touche un meuble pour le déplacer · Glisse le fond pour tourner la vue · <b>R</b> : tourner · <b>Suppr</b> : reprendre</div>
+
+  <section id="inv" class="open">
+    <button id="inv-toggle">🎒 Mes meubles à poser <span id="inv-count"></span></button>
+    <div id="inv-list"></div>
+  </section>
+
+  <div id="msg" hidden></div>
+  <div id="toast"></div>
+
+  <script type="module" src="assets/house.js"></script>
+</body>
+</html>
